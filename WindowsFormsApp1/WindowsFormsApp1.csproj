@@ -1,0 +1,333 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{20EF3DAA-79D8-4BDF-B5D6-C15B17CD1C39}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>WindowsFormsApp1</RootNamespace>
+    <AssemblyName>WindowsFormsApp1</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="M2Mqtt.Net, Version=4.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\M2Mqtt.4.3.0.0\lib\net45\M2Mqtt.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="constant\CONSTANT.cs" />
+    <Compile Include="constant\Type.cs" />
+    <Compile Include="dto\SaveControlDto.cs" />
+    <Compile Include="exceptions\FileTypeException.cs" />
+    <Compile Include="form\About.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\About.Designer.cs">
+      <DependentUpon>About.cs</DependentUpon>
+    </Compile>
+    <Compile Include="entity\ControlEntity.cs" />
+    <Compile Include="entity\DataEntity.cs" />
+    <Compile Include="form\Debug.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\Debug.Designer.cs">
+      <DependentUpon>Debug.cs</DependentUpon>
+    </Compile>
+    <Compile Include="form\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="dto\SaveDataDto.cs" />
+    <Compile Include="form\StreamView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\StreamView.Designer.cs">
+      <DependentUpon>StreamView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="utils\EntityGen.cs" />
+    <Compile Include="utils\FileGen.cs" />
+    <Compile Include="utils\XmlHelper.cs" />
+    <EmbeddedResource Include="form\About.resx">
+      <DependentUpon>About.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form\Debug.resx">
+      <DependentUpon>Debug.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form\StreamView.resx">
+      <DependentUpon>StreamView.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\timg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\新建文本文档.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bk.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\send.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\set.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\file.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\file1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\abot.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\o.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sd.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\send2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sned1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\top.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\top1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit_ok.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit_ok1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\file2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\abot1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\abot11.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\abot111.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\power-unconnect.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\power-connect-open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\power-connect-close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\power-unconnect1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\power-unconnect2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\power-connect-close1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\power-connect-open1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pao.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pao1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pao2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pao3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\light_ooof.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\light_ooof1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\light_of.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bk1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bk2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\messagebb.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\messagebb1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\messageinfo_f.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\messageinfo_s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\track_r.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\track_bg.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\track_bar.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bbbb.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TIM图片20170511164654.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TIM图片201705111646541.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\QQ图片20170511164610.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\QQ图片201705111646101.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="icon.ico" />
+    <None Include="Resources\start.png" />
+    <None Include="Resources\stop.png" />
+    <None Include="Resources\remote1.png" />
+    <None Include="Resources\remote.png" />
+    <None Include="Resources\ssas.jpg" />
+    <None Include="Resources\sss.jpg" />
+    <None Include="Resources\oo.jpg" />
+    <None Include="Resources\ggb.jpg" />
+    <None Include="Resources\gg.jpg" />
+    <None Include="Resources\w.png" />
+    <None Include="Resources\jd.png" />
+    <None Include="Resources\xw.png" />
+    <None Include="Resources\bz.png" />
+    <None Include="Resources\view_bk_s.jpg" />
+    <None Include="Resources\view_bk5.jpg" />
+    <None Include="Resources\view_bk4.jpg" />
+    <None Include="Resources\view_bk3.jpg" />
+    <None Include="Resources\view_bk2.jpg" />
+    <None Include="Resources\view_bk1.jpg" />
+    <None Include="Resources\view_bk.jpg" />
+    <None Include="Resources\view_close.jpg" />
+    <None Include="Resources\view_is_open.jpg" />
+    <None Include="Resources\view_default.jpg" />
+    <None Include="Resources\view1.jpg" />
+    <None Include="Resources\view.jpg" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

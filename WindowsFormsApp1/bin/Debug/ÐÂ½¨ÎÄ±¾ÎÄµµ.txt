@@ -1,0 +1,4 @@
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 WindowsFormsApp1.Form1.RefreshInfoTextBox()
+ 位置 C:\Users\春钰\Desktop\1.5.2\WindowsFormsApp1\Form1.cs
+:行号 243
